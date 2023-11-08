@@ -13,7 +13,6 @@ from gettext import NullTranslations, translation
 import pandas as pd
 import numpy as np
 import json
-import plotly.graph_objects as go
 import requests
 import altair as alt
 import re
