@@ -5,9 +5,7 @@ Created on Thu Jun 15 15:16:57 2023
 
 @author: macos
 """
-streamlit==0.89.0
-pandas==1.3.3
-matplotlib==3.4.3
+
 
 import streamlit as st
 from PIL import Image, ImageOps, ImageDraw
