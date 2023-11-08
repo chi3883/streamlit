@@ -12,7 +12,6 @@ from PIL import Image, ImageOps, ImageDraw
 from gettext import NullTranslations, translation
 import pandas as pd
 import numpy as np
-import seaborn as sns
 import plotly.express as px
 import json
 import plotly.graph_objects as go
@@ -23,7 +22,6 @@ import re
 import pydeck as pdk
 import base64
 import datetime as dt
-import seaborn as sns
 from dateutil.relativedelta import relativedelta 
 from statsmodels.tsa.statespace.sarimax import SARIMAX
 
