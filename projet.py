@@ -59,7 +59,7 @@ st.sidebar.image(image_circle, use_column_width=True)
 
 st.sidebar.header('NGUYEN Huong-Chi')
 
-st.sidebar.info('**:female_superhero: Crazy student information :** Business Developer at TotalEnergies, Student in Master of Science Data Management-Co-signed by Paris School of Business and Efrei Paris')
+st.sidebar.info('**:female_superhero: Crazy student information :** Business Analyst at TotalEnergies, Student in Master of Science Data Management-Co-signed by Paris School of Business and Efrei Paris')
 
 icon_size = 50
 
@@ -101,7 +101,7 @@ if page == "Belib' location":
     data['date_mise_en_service'] = pd.to_datetime(data['date_mise_en_service'])
 
     # Load icon image and convert to base64
-    filepath = "/Users/macos/icon2.png"
+    filepath = "icon.png"
     binary_fc = open(filepath, 'rb').read()
     base64_utf8_str = base64.b64encode(binary_fc).decode('utf-8')
     ext = filepath.split('.')[-1]
