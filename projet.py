@@ -19,7 +19,6 @@ import pydeck as pdk
 import base64
 import datetime as dt
 from dateutil.relativedelta import relativedelta 
-from statsmodels.tsa.statespace.sarimax import SARIMAX
 
 
 
@@ -426,40 +425,7 @@ elif page == "Predict":
     train = data[data['Commissioning_date'] < '12/01/2021']
     test = data[data['Commissioning_date'] >= '12/01/2021']
 
-    # Plot the train and test data
-    fig_train_test = px.line(data_frame=data, x="Commissioning_date", y="Consumption_MWh", title="Train and Test Data")
-    fig_train_test.add_trace(px.line(test, x="Commissioning_date", y=["Consumption_MWh"]).data[0])
-
-    # Update the line colors for train and test
-    fig_train_test.data[-1].line.color = 'red'  # Test data color
-
-    # Update the figure size
-    fig_train_test.update_layout(width=900, height=500)
-
-    # Make predictions for the next 3 months
-    prediction_start_date = data['Commissioning_date'].max()
-    prediction_end_date = prediction_start_date + pd.DateOffset(months=3)
-    prediction_dates = pd.date_range(prediction_start_date, prediction_end_date)
-
-    # Define the ARIMA model
-    y_train = train['Consumption_MWh']
-    ARIMAModel = SARIMAX(y_train, order=(2, 2, 2))
-    ARIMAModel = ARIMAModel.fit()
-    y_pred = ARIMAModel.get_forecast(len(prediction_dates))
-    y_pred_df = y_pred.conf_int(alpha=0.05)
-    y_pred_df["Predictions"] = ARIMAModel.predict(start=y_pred_df.index[0], end=y_pred_df.index[-1])
-    y_pred_df.index = prediction_dates
-    y_pred_out = y_pred_df["Predictions"]
-
-    # Plot the predictions
-    fig_train_test.add_trace(go.Scatter(x=y_pred_out.index, y=y_pred_out, name='ARMA Predictions', line=dict(color='green')))
-
-    # Update the figure layout
-    fig_train_test.update_layout(showlegend=True)
-
-    # Display the plot in Streamlit
-    st.plotly_chart(fig_train_test)
-
+    
    
 
     
