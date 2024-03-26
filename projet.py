@@ -5,7 +5,6 @@ Created on Thu Jun 15 15:16:57 2023
 
 @author: macos
 """
-pip install statsmodels
 
 import streamlit as st
 from PIL import Image, ImageOps, ImageDraw
