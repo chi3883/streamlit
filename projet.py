@@ -40,7 +40,7 @@ df = pd.read_csv(path, delimiter=";", low_memory=False)
     
 ###SLIDEBAR
 
-image = Image.open('image.PNG')
+image = Image.open('image.png')
 
 # Réduire la taille de l'image
 new_size = (int(image.width ), int(image.height ))
